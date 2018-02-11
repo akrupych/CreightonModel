@@ -1,174 +1,180 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="8dp"
-    tools:ignore="RtlHardcoded">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/bloodDropdown"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground"
-        android:drawableRight="@drawable/dropdown_icon"
-        android:gravity="center_vertical"
-        android:padding="16dp"
-        android:text="@string/blood"
-        android:textColor="#000"
-        android:textSize="18sp" />
-
-    <RadioGroup
-        android:id="@+id/bloodSection"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="8dp"
-        android:visibility="gone">
+        tools:ignore="RtlHardcoded">
 
-        <RadioButton
-            android:id="@+id/brown"
+        <TextView
+            android:id="@+id/bloodDropdown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="@string/brown" />
+            android:background="?attr/selectableItemBackground"
+            android:drawableRight="@drawable/dropdown_icon"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="@string/blood"
+            android:textColor="#000"
+            android:textSize="18sp" />
 
-        <RadioButton
-            android:id="@+id/veryLight"
+        <RadioGroup
+            android:id="@+id/bloodSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:padding="8dp"
-            android:text="@string/veryLight" />
+            android:visibility="gone">
 
-        <RadioButton
-            android:id="@+id/light"
+            <RadioButton
+                android:id="@+id/brown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/brown" />
+
+            <RadioButton
+                android:id="@+id/veryLight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/veryLight" />
+
+            <RadioButton
+                android:id="@+id/light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/light" />
+
+            <RadioButton
+                android:id="@+id/moderate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/moderate" />
+
+            <RadioButton
+                android:id="@+id/heavy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/heavy" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/feelingsDropdown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="@string/light" />
+            android:background="?attr/selectableItemBackground"
+            android:drawableRight="@drawable/dropdown_icon"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="@string/feelings"
+            android:textColor="#000"
+            android:textSize="18sp" />
 
-        <RadioButton
-            android:id="@+id/moderate"
+        <RadioGroup
+            android:id="@+id/feelingsSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:padding="8dp"
-            android:text="@string/moderate" />
+            android:visibility="gone">
 
-        <RadioButton
-            android:id="@+id/heavy"
+            <RadioButton
+                android:id="@+id/dry"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/dry" />
+
+            <RadioButton
+                android:id="@+id/noLubrication"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/noLubrication" />
+
+            <RadioButton
+                android:id="@+id/lubrication"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/lubrication" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/lookDropdown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="@string/heavy" />
+            android:background="?attr/selectableItemBackground"
+            android:drawableRight="@drawable/dropdown_icon"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="@string/look"
+            android:textColor="#000"
+            android:textSize="18sp" />
 
-    </RadioGroup>
-
-    <TextView
-        android:id="@+id/feelingsDropdown"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground"
-        android:drawableRight="@drawable/dropdown_icon"
-        android:gravity="center_vertical"
-        android:padding="16dp"
-        android:text="@string/feelings"
-        android:textColor="#000"
-        android:textSize="18sp" />
-
-    <RadioGroup
-        android:id="@+id/feelingsSection"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp"
-        android:visibility="gone">
-
-        <RadioButton
-            android:id="@+id/dry"
+        <RadioGroup
+            android:id="@+id/lookSection"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:orientation="vertical"
             android:padding="8dp"
-            android:text="@string/dry" />
+            android:visibility="gone">
 
-        <RadioButton
-            android:id="@+id/noLubrication"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="@string/noLubrication" />
+            <RadioButton
+                android:id="@+id/cloudy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/cloudy" />
 
-        <RadioButton
-            android:id="@+id/lubrication"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="@string/lubrication" />
+            <RadioButton
+                android:id="@+id/cloudyClear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/cloudyClear" />
 
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/clear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/clear" />
 
-    <TextView
-        android:id="@+id/lookDropdown"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="?attr/selectableItemBackground"
-        android:drawableRight="@drawable/dropdown_icon"
-        android:gravity="center_vertical"
-        android:padding="16dp"
-        android:text="@string/look"
-        android:textColor="#000"
-        android:textSize="18sp" />
+            <RadioButton
+                android:id="@+id/yellow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/yellow" />
 
-    <RadioGroup
-        android:id="@+id/lookSection"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="8dp"
-        android:visibility="gone">
+            <CheckBox
+                android:id="@+id/gluey"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/gluey" />
 
-        <RadioButton
-            android:id="@+id/cloudy"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="@string/cloudy" />
+            <CheckBox
+                android:id="@+id/pasty"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/pasty" />
 
-        <RadioButton
-            android:id="@+id/cloudyClear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="@string/cloudyClear" />
+        </RadioGroup>
 
-        <RadioButton
-            android:id="@+id/clear"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="@string/clear" />
+    </LinearLayout>
 
-        <RadioButton
-            android:id="@+id/yellow"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="@string/yellow" />
-
-        <CheckBox
-            android:id="@+id/gluey"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="@string/gluey" />
-
-        <CheckBox
-            android:id="@+id/pasty"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp"
-            android:text="@string/pasty" />
-
-    </RadioGroup>
-
-</LinearLayout>
+</ScrollView>
