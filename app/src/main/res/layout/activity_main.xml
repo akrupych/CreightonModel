@@ -109,6 +109,27 @@
                 android:padding="8dp"
                 android:text="@string/lubrication" />
 
+            <CheckBox
+                android:id="@+id/damp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/damp" />
+
+            <CheckBox
+                android:id="@+id/wet"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/wet" />
+
+            <CheckBox
+                android:id="@+id/shiny"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/shiny" />
+
         </RadioGroup>
 
         <TextView

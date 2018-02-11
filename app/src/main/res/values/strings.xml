@@ -12,6 +12,9 @@
     <string name="dry">Сухо (0)</string>
     <string name="noLubrication">Не слизько</string>
     <string name="lubrication">Слизько (L)</string>
+    <string name="damp">Вогко</string>
+    <string name="wet">Мокро</string>
+    <string name="shiny">Блискуче</string>
 
     <string name="look">Вигляд</string>
     <string name="cloudy">Мутний білий (C)</string>
