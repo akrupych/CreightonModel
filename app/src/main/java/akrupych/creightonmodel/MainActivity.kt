@@ -11,6 +11,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         bloodDropdown.setOnClickListener { toggleBloodDropdown() }
         feelingsDropdown.setOnClickListener { toggleFeelingsDropdown() }
+        lookDropdown.setOnClickListener { toggleLookDropdown() }
     }
 
     private fun toggleBloodDropdown() {
@@ -23,5 +24,11 @@ class MainActivity : AppCompatActivity() {
         val shouldOpen = !feelingsDropdown.isSelected
         feelingsDropdown.isSelected = shouldOpen
         feelingsSection.setVisible(shouldOpen)
+    }
+
+    private fun toggleLookDropdown() {
+        val shouldOpen = !lookDropdown.isSelected
+        lookDropdown.isSelected = shouldOpen
+        lookSection.setVisible(shouldOpen)
     }
 }

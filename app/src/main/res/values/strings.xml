@@ -9,7 +9,15 @@
     <string name="heavy">Рясна кровотеча (H)</string>
 
     <string name="feelings">Відчуття</string>
-    <string name="dry">Сухо</string>
+    <string name="dry">Сухо (0)</string>
     <string name="noLubrication">Не слизько</string>
-    <string name="lubrication">Слизько</string>
+    <string name="lubrication">Слизько (L)</string>
+
+    <string name="look">Вигляд</string>
+    <string name="cloudy">Мутний білий (C)</string>
+    <string name="cloudyClear">Мутно-прозорий (C/K)</string>
+    <string name="clear">Прозорий (K)</string>
+    <string name="yellow">Жовтий (Y)</string>
+    <string name="gluey">Гумоподібний (G)</string>
+    <string name="pasty">Кремоподібний (P)</string>
 </resources>

@@ -107,4 +107,68 @@
 
     </RadioGroup>
 
+    <TextView
+        android:id="@+id/lookDropdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:drawableRight="@drawable/dropdown_icon"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:text="@string/look"
+        android:textColor="#000"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:id="@+id/lookSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:visibility="gone">
+
+        <RadioButton
+            android:id="@+id/cloudy"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/cloudy" />
+
+        <RadioButton
+            android:id="@+id/cloudyClear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/cloudyClear" />
+
+        <RadioButton
+            android:id="@+id/clear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/clear" />
+
+        <RadioButton
+            android:id="@+id/yellow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/yellow" />
+
+        <CheckBox
+            android:id="@+id/gluey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/gluey" />
+
+        <CheckBox
+            android:id="@+id/pasty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/pasty" />
+
+    </RadioGroup>
+
 </LinearLayout>
