@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Creighton</string>
 
+    <string name="temperature">Температура</string>
+
     <string name="blood">Кровотеча</string>
     <string name="brown">Коричневе або чорне плямлення (B)</string>
     <string name="veryLight">Дуже помірна кровотеча (VL)</string>

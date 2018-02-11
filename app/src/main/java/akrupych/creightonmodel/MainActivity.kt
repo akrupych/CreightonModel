@@ -10,16 +10,19 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        contentView.requestFocus()
         bloodDropdown.setOnClickListener { toggleBloodDropdown() }
         feelingsDropdown.setOnClickListener { toggleFeelingsDropdown() }
         lookDropdown.setOnClickListener { toggleLookDropdown() }
         stretchDropdown.setOnClickListener { toggleStretchDropdown() }
-        testFirebase()
+//        testFirebase()
     }
 
     private fun testFirebase() {
-        val records = FirebaseDatabase.getInstance().reference.child("records")
-        records.child(records.push().key).setValue(Record())
+        val database = FirebaseDatabase.getInstance().reference
+        val key = System.currentTimeMillis().toString()
+        database.child("excretion").child(key).setValue("10KL")
+        database.child("temperature").child(key).setValue("36.6")
     }
 
     private fun toggleBloodDropdown() {
