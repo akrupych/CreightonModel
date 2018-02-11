@@ -20,4 +20,9 @@
     <string name="yellow">Жовтий (Y)</string>
     <string name="gluey">Гумоподібний (G)</string>
     <string name="pasty">Кремоподібний (P)</string>
+
+    <string name="stretch">Тягучість</string>
+    <string name="sticky"><![CDATA[Малотягучий < 0.5 см (6)]]></string>
+    <string name="tacky">Середньотягучий 1 – 2 см (8)</string>
+    <string name="stretchy"><![CDATA[Дуже тягучий > 2.5 см (10)]]></string>
 </resources>

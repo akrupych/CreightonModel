@@ -175,6 +175,49 @@
 
         </RadioGroup>
 
+        <TextView
+            android:id="@+id/stretchDropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:drawableRight="@drawable/dropdown_icon"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="@string/stretch"
+            android:textColor="#000"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:id="@+id/stretchSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@+id/sticky"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/sticky" />
+
+            <RadioButton
+                android:id="@+id/tacky"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/tacky" />
+
+            <RadioButton
+                android:id="@+id/stretchy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/stretchy" />
+
+        </RadioGroup>
+
     </LinearLayout>
 
 </ScrollView>

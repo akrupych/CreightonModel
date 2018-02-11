@@ -12,6 +12,7 @@ class MainActivity : AppCompatActivity() {
         bloodDropdown.setOnClickListener { toggleBloodDropdown() }
         feelingsDropdown.setOnClickListener { toggleFeelingsDropdown() }
         lookDropdown.setOnClickListener { toggleLookDropdown() }
+        stretchDropdown.setOnClickListener { toggleStretchDropdown() }
     }
 
     private fun toggleBloodDropdown() {
@@ -30,5 +31,11 @@ class MainActivity : AppCompatActivity() {
         val shouldOpen = !lookDropdown.isSelected
         lookDropdown.isSelected = shouldOpen
         lookSection.setVisible(shouldOpen)
+    }
+
+    private fun toggleStretchDropdown() {
+        val shouldOpen = !stretchDropdown.isSelected
+        stretchDropdown.isSelected = shouldOpen
+        stretchSection.setVisible(shouldOpen)
     }
 }
