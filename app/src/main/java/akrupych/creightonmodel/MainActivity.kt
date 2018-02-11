@@ -2,6 +2,7 @@ package akrupych.creightonmodel
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -13,6 +14,12 @@ class MainActivity : AppCompatActivity() {
         feelingsDropdown.setOnClickListener { toggleFeelingsDropdown() }
         lookDropdown.setOnClickListener { toggleLookDropdown() }
         stretchDropdown.setOnClickListener { toggleStretchDropdown() }
+        testFirebase()
+    }
+
+    private fun testFirebase() {
+        val records = FirebaseDatabase.getInstance().reference.child("records")
+        records.child(records.push().key).setValue(Record())
     }
 
     private fun toggleBloodDropdown() {
