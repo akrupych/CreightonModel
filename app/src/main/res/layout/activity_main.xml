@@ -12,63 +12,6 @@
         tools:ignore="RtlHardcoded">
 
         <TextView
-            android:id="@+id/bloodDropdown"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="?attr/selectableItemBackground"
-            android:drawableRight="@drawable/dropdown_icon"
-            android:gravity="center_vertical"
-            android:padding="16dp"
-            android:text="@string/blood"
-            android:textColor="#000"
-            android:textSize="18sp" />
-
-        <RadioGroup
-            android:id="@+id/bloodSection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="8dp"
-            android:visibility="gone">
-
-            <RadioButton
-                android:id="@+id/brown"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="@string/brown" />
-
-            <RadioButton
-                android:id="@+id/veryLight"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="@string/veryLight" />
-
-            <RadioButton
-                android:id="@+id/light"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="@string/light" />
-
-            <RadioButton
-                android:id="@+id/moderate"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="@string/moderate" />
-
-            <RadioButton
-                android:id="@+id/heavy"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="@string/heavy" />
-
-        </RadioGroup>
-
-        <TextView
             android:id="@+id/feelingsDropdown"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -236,6 +179,63 @@
                 android:layout_height="wrap_content"
                 android:padding="8dp"
                 android:text="@string/stretchy" />
+
+        </RadioGroup>
+
+        <TextView
+            android:id="@+id/bloodDropdown"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="?attr/selectableItemBackground"
+            android:drawableRight="@drawable/dropdown_icon"
+            android:gravity="center_vertical"
+            android:padding="16dp"
+            android:text="@string/blood"
+            android:textColor="#000"
+            android:textSize="18sp" />
+
+        <RadioGroup
+            android:id="@+id/bloodSection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp"
+            android:visibility="gone">
+
+            <RadioButton
+                android:id="@+id/brown"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/brown" />
+
+            <RadioButton
+                android:id="@+id/veryLight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/veryLight" />
+
+            <RadioButton
+                android:id="@+id/light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/light" />
+
+            <RadioButton
+                android:id="@+id/moderate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/moderate" />
+
+            <RadioButton
+                android:id="@+id/heavy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:text="@string/heavy" />
 
         </RadioGroup>
 
