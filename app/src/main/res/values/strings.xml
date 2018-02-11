@@ -1,3 +1,10 @@
 <resources>
-    <string name="app_name">CreightonModel</string>
+    <string name="app_name">Creighton</string>
+
+    <string name="blood">Кровотеча</string>
+    <string name="brown">Коричневе або чорне плямлення (B)</string>
+    <string name="veryLight">Дуже помірна кровотеча (VL)</string>
+    <string name="light">Помірна кровотеча (L)</string>
+    <string name="moderate">Кровотеча середньої інтенсивності (M)</string>
+    <string name="heavy">Рясна кровотеча (H)</string>
 </resources>
