@@ -7,4 +7,9 @@
     <string name="light">Помірна кровотеча (L)</string>
     <string name="moderate">Кровотеча середньої інтенсивності (M)</string>
     <string name="heavy">Рясна кровотеча (H)</string>
+
+    <string name="feelings">Відчуття</string>
+    <string name="dry">Сухо</string>
+    <string name="noLubrication">Не слизько</string>
+    <string name="lubrication">Слизько</string>
 </resources>

@@ -64,4 +64,47 @@
 
     </RadioGroup>
 
+    <TextView
+        android:id="@+id/feelingsDropdown"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:drawableRight="@drawable/dropdown_icon"
+        android:gravity="center_vertical"
+        android:padding="16dp"
+        android:text="@string/feelings"
+        android:textColor="#000"
+        android:textSize="18sp" />
+
+    <RadioGroup
+        android:id="@+id/feelingsSection"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="8dp"
+        android:visibility="gone">
+
+        <RadioButton
+            android:id="@+id/dry"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/dry" />
+
+        <RadioButton
+            android:id="@+id/noLubrication"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/noLubrication" />
+
+        <RadioButton
+            android:id="@+id/lubrication"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:text="@string/lubrication" />
+
+    </RadioGroup>
+
 </LinearLayout>
