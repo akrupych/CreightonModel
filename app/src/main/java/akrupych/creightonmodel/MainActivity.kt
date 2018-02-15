@@ -2,6 +2,8 @@ package akrupych.creightonmodel
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
+import android.view.Menu
+import android.view.MenuItem
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -15,10 +17,19 @@ class MainActivity : AppCompatActivity() {
         feelingsDropdown.setOnClickListener { toggleFeelingsDropdown() }
         lookDropdown.setOnClickListener { toggleLookDropdown() }
         stretchDropdown.setOnClickListener { toggleStretchDropdown() }
-//        testFirebase()
     }
 
-    private fun testFirebase() {
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.record, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.submitRecord) submitRecord()
+        return true
+    }
+
+    private fun submitRecord() {
         val database = FirebaseDatabase.getInstance().reference
         val key = System.currentTimeMillis().toString()
         database.child("excretion").child(key).setValue("10KL")
