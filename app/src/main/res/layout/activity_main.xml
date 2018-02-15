@@ -47,13 +47,6 @@
             android:visibility="gone">
 
             <RadioButton
-                android:id="@+id/dry"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:padding="8dp"
-                android:text="@string/dry" />
-
-            <RadioButton
                 android:id="@+id/noLubrication"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

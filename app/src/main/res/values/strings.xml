@@ -11,8 +11,7 @@
     <string name="heavy">Рясна кровотеча (H)</string>
 
     <string name="feelings">Відчуття</string>
-    <string name="dry">Сухо (0)</string>
-    <string name="noLubrication">Не слизько</string>
+    <string name="noLubrication">Не слизько (0–4)</string>
     <string name="lubrication">Слизько (L)</string>
     <string name="damp">Вогко</string>
     <string name="wet">Мокро</string>
