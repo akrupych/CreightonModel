@@ -31,9 +31,65 @@ class MainActivity : AppCompatActivity() {
 
     private fun submitRecord() {
         val database = FirebaseDatabase.getInstance().reference
-        val key = System.currentTimeMillis().toString()
-        database.child("excretion").child(key).setValue("10KL")
-        database.child("temperature").child(key).setValue("36.6")
+        if (bloodRecorded()) database.child("excretion").child(getKey()).setValue(resolveBlood())
+        if (mucusRecorded()) database.child("excretion").child(getKey()).setValue(resolveMucus())
+        if (temperatureRecorded()) database.child("temperature").child(getKey()).setValue(resolveTemperature())
+    }
+
+    private fun getKey() = System.currentTimeMillis().toString()
+
+    private fun resolveTemperature(): Double = temperatureEditText.text.toString().toDouble()
+
+    private fun temperatureRecorded(): Boolean = temperatureEditText.text.isNotEmpty()
+
+    private fun bloodRecorded(): Boolean = bloodSection.hasSelection()
+
+    private fun resolveBlood(): String = when (bloodSection.checkedRadioButtonId) {
+        R.id.brown -> "B"
+        R.id.veryLight -> "VL"
+        R.id.light -> "L"
+        R.id.moderate -> "M"
+        R.id.heavy -> "H"
+        else -> ""
+    }
+
+    private fun mucusRecorded(): Boolean =
+            feelingsSection.hasSelection() || lookSection.hasSelection() || stretchSection.hasSelection()
+
+    private fun resolveMucus(): String {
+        val number = when {
+            stretchSection.hasSelection() -> when (stretchSection.checkedRadioButtonId) {
+                R.id.sticky -> "6"
+                R.id.tacky -> "8"
+                R.id.stretchy -> "10"
+                else -> "0"
+            }
+            noLubrication.isChecked -> when {
+                shiny.isChecked -> "4"
+                wet.isChecked -> "2W"
+                damp.isChecked -> "2"
+                else -> "0"
+            }
+            else -> ""
+        }
+        val color = when (lookSection.checkedRadioButtonId) {
+            R.id.cloudy -> "C"
+            R.id.cloudyClear -> "C/K"
+            R.id.clear -> "K"
+            R.id.yellow -> "Y"
+            else -> ""
+        }
+        val pasty = if (pasty.isChecked) "P" else ""
+        val gluey = if (gluey.isChecked) "G" else ""
+        val lubrication = if (lubrication.isChecked) {
+            when {
+                shiny.isChecked -> "SL"
+                wet.isChecked -> "WL"
+                damp.isChecked -> "DL"
+                else -> "L"
+            }
+        } else ""
+        return "$number$color$pasty$gluey$lubrication"
     }
 
     private fun toggleBloodDropdown() {
