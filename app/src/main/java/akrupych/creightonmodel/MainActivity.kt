@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
         if (bloodRecorded()) database.child("excretion").child(getKey()).setValue(resolveBlood())
         if (mucusRecorded()) database.child("excretion").child(getKey()).setValue(resolveMucus())
         if (temperatureRecorded()) database.child("temperature").child(getKey()).setValue(resolveTemperature())
+        finish()
     }
 
     private fun getKey() = System.currentTimeMillis().toString()
