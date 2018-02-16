@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity() {
         if (bloodRecorded()) database.child("excretion").child(getKey()).setValue(resolveBlood())
         if (mucusRecorded()) database.child("excretion").child(getKey()).setValue(resolveMucus())
         if (temperatureRecorded()) database.child("temperature").child(getKey()).setValue(resolveTemperature())
+        if (sex.isChecked) database.child("marks").child(getKey()).setValue("I")
+        if (kegel.isChecked) database.child("marks").child(getKey()).setValue("K")
         finish()
     }
 
