@@ -53,7 +53,7 @@ class ObservationActivity : AppCompatActivity() {
 
     private fun notesEntered(): Boolean = notesEditText.text.isNotEmpty()
 
-    private fun resolveTemperature(): Double = temperatureEditText.text.toString().toDouble()
+    private fun resolveTemperature(): String = temperatureEditText.text.toString()
 
     private fun temperaturePresent(): Boolean = temperatureEditText.text.isNotEmpty()
 

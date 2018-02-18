@@ -2,7 +2,11 @@
     <string name="app_name">Creighton</string>
     <string name="observation">Спостереження</string>
 
+    <string name="submit">Зберегти</string>
     <string name="temperature">Температура</string>
+    <string name="sex">Співжиття (I)</string>
+    <string name="kegel">Вправа Кегеля (КE)</string>
+    <string name="notes">Нотатки</string>
 
     <string name="blood">Кровотеча</string>
     <string name="brown">Коричневе або чорне плямлення (B)</string>
@@ -31,9 +35,5 @@
     <string name="tacky">Середньотягучий 1 – 2 см (8)</string>
     <string name="stretchy"><![CDATA[Дуже тягучий > 2.5 см (10)]]></string>
 
-    <string name="submit">Зберегти</string>
-
-    <string name="sex">Співжиття (I)</string>
-    <string name="kegel">Вправа Кегеля (КE)</string>
-    <string name="notes">Нотатки</string>
+    <string name="today">Сьогодні:</string>
 </resources>
