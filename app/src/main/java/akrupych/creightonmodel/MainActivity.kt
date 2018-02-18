@@ -43,8 +43,13 @@ class MainActivity : AppCompatActivity() {
         if (temperatureRecorded()) database.child(year).child(month).child(day).child(getKey("t")).setValue(resolveTemperature())
         if (sex.isChecked) database.child(year).child(month).child(day).child(getKey("i")).setValue("I")
         if (kegel.isChecked) database.child(year).child(month).child(day).child(getKey("k")).setValue("KE")
+        if (notesEntered()) database.child(year).child(month).child(day).child(getKey("n")).setValue(getNotes())
         finish()
     }
+
+    private fun getNotes(): String = notesEditText.text.toString()
+
+    private fun notesEntered(): Boolean = notesEditText.text.isNotEmpty()
 
     private fun getKey(prefix: String) = "$prefix:${System.currentTimeMillis()}"
 
