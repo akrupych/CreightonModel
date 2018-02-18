@@ -47,11 +47,11 @@ class MainActivity : AppCompatActivity() {
         finish()
     }
 
+    private fun getKey(type: String) = "${System.currentTimeMillis()}:$type"
+
     private fun getNotes(): String = notesEditText.text.toString()
 
     private fun notesEntered(): Boolean = notesEditText.text.isNotEmpty()
-
-    private fun getKey(prefix: String) = "$prefix:${System.currentTimeMillis()}"
 
     private fun resolveTemperature(): Double = temperatureEditText.text.toString().toDouble()
 
