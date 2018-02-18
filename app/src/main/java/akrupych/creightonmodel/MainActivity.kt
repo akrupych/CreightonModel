@@ -1,9 +1,11 @@
 package akrupych.creightonmodel
 
+import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
+import android.view.inputmethod.InputMethodManager
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
 import org.joda.time.DateTime
@@ -101,26 +103,35 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun toggleBloodDropdown() {
+        hideKeyboard()
         val shouldOpen = !bloodDropdown.isSelected
         bloodDropdown.isSelected = shouldOpen
         bloodSection.setVisible(shouldOpen)
     }
 
     private fun toggleFeelingsDropdown() {
+        hideKeyboard()
         val shouldOpen = !feelingsDropdown.isSelected
         feelingsDropdown.isSelected = shouldOpen
         feelingsSection.setVisible(shouldOpen)
     }
 
     private fun toggleLookDropdown() {
+        hideKeyboard()
         val shouldOpen = !lookDropdown.isSelected
         lookDropdown.isSelected = shouldOpen
         lookSection.setVisible(shouldOpen)
     }
 
     private fun toggleStretchDropdown() {
+        hideKeyboard()
         val shouldOpen = !stretchDropdown.isSelected
         stretchDropdown.isSelected = shouldOpen
         stretchSection.setVisible(shouldOpen)
+    }
+
+    private fun hideKeyboard() {
+        val imm = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
+        imm.hideSoftInputFromWindow(contentView.windowToken, 0)
     }
 }
