@@ -35,6 +35,8 @@ dependencies {
     // firebase
     implementation 'com.google.firebase:firebase-core:11.8.0'
     implementation 'com.google.firebase:firebase-database:11.8.0'
+    // joda time
+    implementation 'joda-time:joda-time:2.9.9'
 }
 
 apply plugin: 'com.google.gms.google-services'

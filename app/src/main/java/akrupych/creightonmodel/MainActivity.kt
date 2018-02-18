@@ -6,6 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import com.google.firebase.database.FirebaseDatabase
 import kotlinx.android.synthetic.main.activity_main.*
+import org.joda.time.DateTime
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,15 +32,19 @@ class MainActivity : AppCompatActivity() {
 
     private fun submitRecord() {
         val database = FirebaseDatabase.getInstance().reference
-        if (bloodRecorded()) database.child("excretion").child(getKey()).setValue(resolveBlood())
-        if (mucusRecorded()) database.child("excretion").child(getKey()).setValue(resolveMucus())
-        if (temperatureRecorded()) database.child("temperature").child(getKey()).setValue(resolveTemperature())
-        if (sex.isChecked) database.child("marks").child(getKey()).setValue("I")
-        if (kegel.isChecked) database.child("marks").child(getKey()).setValue("K")
+        val dateTime = DateTime.now()
+        val year = dateTime.year.toString()
+        val month = dateTime.monthOfYear.toString()
+        val day = dateTime.dayOfMonth.toString()
+        if (bloodRecorded()) database.child(year).child(month).child(day).child(getKey("b")).setValue(resolveBlood())
+        if (mucusRecorded()) database.child(year).child(month).child(day).child(getKey("m")).setValue(resolveMucus())
+        if (temperatureRecorded()) database.child(year).child(month).child(day).child(getKey("t")).setValue(resolveTemperature())
+        if (sex.isChecked) database.child(year).child(month).child(day).child(getKey("i")).setValue("I")
+        if (kegel.isChecked) database.child(year).child(month).child(day).child(getKey("k")).setValue("KE")
         finish()
     }
 
-    private fun getKey() = System.currentTimeMillis().toString()
+    private fun getKey(prefix: String) = "$prefix:${System.currentTimeMillis()}"
 
     private fun resolveTemperature(): Double = temperatureEditText.text.toString().toDouble()
 
