@@ -1,14 +1,14 @@
 package akrupych.creightonmodel
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -44,10 +44,12 @@ class MainActivity : AppCompatActivity() {
             override fun onDataChange(snapshot: DataSnapshot) {
                 Log.d("qwerty", snapshot.toString())
                 val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
-                observations = (snapshot.value as? Map<String, String>)?.toList()?.map {
+                @Suppress("UNCHECKED_CAST")
+                val data = (snapshot.value as? Map<String, String>)
+                observations = data?.toList()?.map {
                     Pair(timeFormat.format(Date(it.first.split(":")[0].toLong())), it.second)
                 } ?: emptyList()
-                observationsRecyclerView.adapter.notifyDataSetChanged()
+                observationsRecyclerView.adapter?.notifyDataSetChanged()
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -60,7 +62,7 @@ class MainActivity : AppCompatActivity() {
 
         override fun getItemCount() = observations.size
 
-        override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int) =
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
                 ObservationViewHolder(inflater.inflate(R.layout.item_observation, parent, false))
 
         override fun onBindViewHolder(holder: ObservationViewHolder, position: Int) {
@@ -74,7 +76,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private class ObservationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val observationTime = itemView.findViewById<TextView>(R.id.observationTime)
-        val observationValue = itemView.findViewById<TextView>(R.id.observationValue)
+        val observationTime: TextView = itemView.findViewById(R.id.observationTime)
+        val observationValue: TextView = itemView.findViewById(R.id.observationValue)
     }
 }

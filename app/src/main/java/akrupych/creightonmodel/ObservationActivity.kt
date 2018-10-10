@@ -2,7 +2,7 @@ package akrupych.creightonmodel
 
 import android.content.Context
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatActivity
 import android.view.Menu
 import android.view.MenuItem
 import android.view.inputmethod.InputMethodManager
@@ -51,11 +51,11 @@ class ObservationActivity : AppCompatActivity() {
 
     private fun getNotes(): String = notesEditText.text.toString()
 
-    private fun notesEntered(): Boolean = notesEditText.text.isNotEmpty()
+    private fun notesEntered(): Boolean = !notesEditText.text.isNullOrEmpty()
 
     private fun resolveTemperature(): String = temperatureEditText.text.toString()
 
-    private fun temperaturePresent(): Boolean = temperatureEditText.text.isNotEmpty()
+    private fun temperaturePresent(): Boolean = !temperatureEditText.text.isNullOrEmpty()
 
     private fun bloodPresent(): Boolean = bloodSection.hasSelection()
 
