@@ -1,8 +1,8 @@
 package akrupych.creightonmodel
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,12 +15,12 @@ import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import kotlinx.android.synthetic.main.activity_main.*
 import org.joda.time.DateTime
-import java.text.SimpleDateFormat
-import java.util.*
+import org.joda.time.format.DateTimeFormat
+import org.joda.time.format.DateTimeFormatter
 
 class MainActivity : AppCompatActivity() {
 
-    private var observations = listOf<Pair<String, String>>()
+    private var listItems = mutableListOf<Observation>()
     private val inflater: LayoutInflater by lazy { LayoutInflater.from(this) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -30,25 +30,30 @@ class MainActivity : AppCompatActivity() {
         observationsRecyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = ObservationsAdapter()
-            loadTodayObservations()
+            loadObservations()
         }
     }
 
-    private fun loadTodayObservations() {
+    private fun loadObservations() {
         val database = FirebaseDatabase.getInstance().reference
-        val dateTime = DateTime.now()
-        val year = dateTime.year.toString()
-        val month = dateTime.monthOfYear.toString()
-        val day = dateTime.dayOfMonth.toString()
-        database.child(year).child(month).child(day).addValueEventListener(object : ValueEventListener {
+        database.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                Log.d("qwerty", snapshot.toString())
-                val timeFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
-                @Suppress("UNCHECKED_CAST")
-                val data = (snapshot.value as? Map<String, String>)
-                observations = data?.toList()?.map {
-                    Pair(timeFormat.format(Date(it.first.split(":")[0].toLong())), it.second)
-                } ?: emptyList()
+                snapshot.children.forEach { yearSnapshot ->
+                    yearSnapshot.children.forEach { monthSnapshot ->
+                        monthSnapshot.children.forEach { daySnapshot  ->
+                            val section = listOf(Observation(DateTime( // indicator for date header
+                                    yearSnapshot.key!!.toInt(),
+                                    monthSnapshot.key!!.toInt(),
+                                    daySnapshot.key!!.toInt(),
+                                    0,
+                                    0
+                            ))).plus(daySnapshot.children.mapNotNull {
+                                Observation.parse(it.key, it.value.toString())
+                            })
+                            listItems.addAll(0, section)
+                        }
+                    }
+                }
                 observationsRecyclerView.adapter?.notifyDataSetChanged()
             }
 
@@ -58,18 +63,41 @@ class MainActivity : AppCompatActivity() {
         })
     }
 
-    private inner class ObservationsAdapter : RecyclerView.Adapter<ObservationViewHolder>() {
+    private inner class ObservationsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
-        override fun getItemCount() = observations.size
+        val VIEW_TYPE_TITLE = 0
+        val VIEW_TYPE_ITEM = 1
 
-        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
-                ObservationViewHolder(inflater.inflate(R.layout.item_observation, parent, false))
+        val dateFormat: DateTimeFormatter = DateTimeFormat.forPattern("E, d.M.y")
+        val timeFormat: DateTimeFormatter = DateTimeFormat.forPattern("HH:mm")
 
-        override fun onBindViewHolder(holder: ObservationViewHolder, position: Int) {
-            val item = observations[position]
-            holder.apply {
-                observationTime.text = item.first
-                observationValue.text = item.second
+        override fun getItemCount() = listItems.size
+
+        override fun getItemViewType(position: Int): Int =
+                if (listItems[position].type.isEmpty()) VIEW_TYPE_TITLE else VIEW_TYPE_ITEM
+
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) = when(viewType) {
+            VIEW_TYPE_TITLE -> object : RecyclerView.ViewHolder(inflater.inflate(R.layout.item_title, parent, false)) {}
+            else -> ObservationViewHolder(inflater.inflate(R.layout.item_observation, parent, false))
+        }
+
+        override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+            val item = listItems[position]
+            if (holder is ObservationViewHolder) {
+                holder.apply {
+                    observationTime.text = timeFormat.print(item.dateTime)
+                    observationValue.text = item.value
+                    if (item.type == Observation.TYPE_BLOOD) observationValue.setTextColor(Color.RED)
+                    observationValue.setTextColor(when (item.type) {
+                        Observation.TYPE_BLOOD -> Color.RED
+                        Observation.TYPE_MUCUS -> Color.GREEN
+                        Observation.TYPE_TEMPERATURE -> Color.BLUE
+                        else -> Color.BLACK
+                    })
+                }
+            } else {
+                val textView = holder.itemView as TextView
+                textView.text = dateFormat.print(item.dateTime)
             }
         }
 

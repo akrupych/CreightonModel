@@ -38,12 +38,15 @@ class ObservationActivity : AppCompatActivity() {
         val year = dateTime.year.toString()
         val month = dateTime.monthOfYear.toString()
         val day = dateTime.dayOfMonth.toString()
-        if (bloodPresent()) database.child(year).child(month).child(day).child(getKey("b")).setValue(resolveBlood())
-        if (mucusPresent()) database.child(year).child(month).child(day).child(getKey("m")).setValue(resolveMucus())
-        if (temperaturePresent()) database.child(year).child(month).child(day).child(getKey("t")).setValue(resolveTemperature())
-        if (sex.isChecked) database.child(year).child(month).child(day).child(getKey("i")).setValue("I")
-        if (kegel.isChecked) database.child(year).child(month).child(day).child(getKey("k")).setValue("KE")
-        if (notesEntered()) database.child(year).child(month).child(day).child(getKey("n")).setValue(getNotes())
+        fun submit(item: Observation) { // set single value to DB
+            database.child(year).child(month).child(day).child(item.key).setValue(item.value)
+        }
+        if (bloodPresent()) submit(Observation(dateTime, Observation.TYPE_BLOOD, resolveBlood()))
+        if (mucusPresent()) submit(Observation(dateTime, Observation.TYPE_MUCUS, resolveMucus()))
+        if (temperaturePresent()) submit(Observation(dateTime, Observation.TYPE_TEMPERATURE, resolveTemperature()))
+        if (sex.isChecked) submit(Observation(dateTime, Observation.TYPE_SEX, "I"))
+        if (kegel.isChecked) submit(Observation(dateTime, Observation.TYPE_KEGEL, "KE"))
+        if (notesEntered()) submit(Observation(dateTime, Observation.TYPE_NOTE, getNotes()))
         finish()
     }
 
